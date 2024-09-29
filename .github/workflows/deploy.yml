@@ -19,7 +19,7 @@ jobs:
         version: v0.17.0
 
     - name: Create a Kind cluster
-      run: kind create cluster --name kind-mouralab-prd --wait 5m
+      run: kind create cluster --name kind-mouralab-dev --wait 5m
 
     - name: Set up kubectl
       uses: azure/setup-kubectl@v1
@@ -28,8 +28,9 @@ jobs:
 
     - name: Apply Kubernetes manifests
       run: |
-        kubectl apply -f k8s/deployment.yaml
-        kubectl apply -f k8s/service.yaml
+        kubectl apply -f kind/namespace.yaml  # Cria o namespace se não existir
+        kubectl apply -f kind/deployment.yaml
+        kubectl apply -f kind/service.yaml
 
     - name: Verify deployment
       run: kubectl get pods
