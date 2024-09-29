@@ -19,7 +19,7 @@ jobs:
         version: v0.17.0
 
     - name: Create a Kind cluster
-      run: kind create cluster --name kind-mouralab-dev --wait 5m
+      run: kind create cluster --name mouralab-dev --wait 5m
 
     - name: Set up kubectl
       uses: azure/setup-kubectl@v1
