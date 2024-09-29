@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mslab  # Primeiro namespace
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: service-test  # Segundo namespace
